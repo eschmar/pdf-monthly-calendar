@@ -36,7 +36,7 @@ if (urlParams.has("num")) numMonths = parseInt(urlParams.get("num"));
 /** Generate calendar months */
 
 for (let i = 0; i < numMonths; i++) {
-  console.log("Generating: ", year, month)
+  // console.log("Generating: ", year, month);
   generateCalendarMonth(year, month++);
 
   if (month == 13) {
