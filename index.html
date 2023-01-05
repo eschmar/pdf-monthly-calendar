@@ -2,15 +2,24 @@
 <html>
 
 <head>
-	<title>Parcel Sandbox</title>
-	<meta charset="UTF-8" />
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
 </head>
 
 <body>
-	<div id="app"></div>
+    <div id="app">
+        <div class="calendar-month">
+            <section class="calendar-month-header">
+              <div id="selected-month" class="calendar-month-header-selected-month"></div>
+            </section>
 
-	<script src="src/index.js">
-	</script>
+            <ol id="days-of-week" class="day-of-week"></ol>
+            <ol id="calendar-days" class="days-grid"></ol>
+          </div>
+    </div>
+
+    <script src="src/index.js">
+    </script>
 </body>
 
 </html>
