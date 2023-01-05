@@ -16,33 +16,25 @@ li {
   list-style: none;
 }
 
+.calendar-month-wrapper {
+  display: grid;
+  grid-template-columns: 100px auto;
+}
+
+.selected-month span {
+  display: block;
+  color: var(--grey-800);
+  font-size: 18px;
+  padding: 8px 0;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .calendar-month {
   position: relative;
   background-color: var(--grey-200);
   border: solid 1px var(--grey-200);
-}
-
-.calendar-month-header {
-  display: flex;
-  justify-content: space-between;
-  background-color: #fff;
-  padding: 10px;
-}
-
-.calendar-month-header-selected-month {
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.calendar-month-header-selectors {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 80px;
-}
-
-.calendar-month-header-selectors > * {
-  cursor: pointer;
 }
 
 .day-of-week {

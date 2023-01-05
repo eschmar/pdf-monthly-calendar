@@ -15,12 +15,17 @@ const INITIAL_MONTH = dayjs().format("M");
 let currentMonthDays;
 let previousMonthDays;
 let nextMonthDays;
+const app = document.getElementById("app");
 
+app.innerHTML = '';
 generateCalendarMonth();
 
 function generateCalendarMonth(year = INITIAL_YEAR, month = INITIAL_MONTH) {
   const wrapperElement = document.createElement("div");
-  wrapperElement.classList.add("calendar-month");
+  wrapperElement.classList.add("calendar-month-wrapper");
+
+  const monthElement = document.createElement("div");
+  monthElement.classList.add("calendar-month");
 
   /** Add Weekday Header */
   const daysOfWeekElement = document.createElement("ol");
@@ -32,7 +37,7 @@ function generateCalendarMonth(year = INITIAL_YEAR, month = INITIAL_MONTH) {
     weekDayElement.innerText = weekday;
   });
 
-  wrapperElement.appendChild(daysOfWeekElement);
+  monthElement.appendChild(daysOfWeekElement);
 
   /** Add Calendar Days body */
   const calendarDaysElement = document.createElement("ol");
@@ -53,9 +58,25 @@ function generateCalendarMonth(year = INITIAL_YEAR, month = INITIAL_MONTH) {
     appendDay(day, calendarDaysElement);
   });
 
-  wrapperElement.appendChild(calendarDaysElement);
+  monthElement.appendChild(calendarDaysElement);
 
-  const app = document.getElementById("app");
+  /** Add current month label */
+  const labelElement = document.createElement("div");
+  labelElement.classList.add("selected-month");
+
+  const labelSpanElement = document.createElement("span");
+  // labelSpanElement.classList.add("day-of-week");
+
+  labelSpanElement.innerText = dayjs(
+    new Date(year, month - 1)
+  ).format("MMM YY");
+
+  labelElement.appendChild(labelSpanElement);
+
+  /** Append calendar month */
+  wrapperElement.appendChild(labelElement);
+  wrapperElement.appendChild(monthElement);
+
   app.appendChild(wrapperElement);
 }
 
