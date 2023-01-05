@@ -21,7 +21,13 @@ let nextMonthDays;
 const app = document.getElementById("app");
 app.innerHTML = '';
 
+/** Parse input parameters */
+
 const CAL_NUM_MONTHS_AHEAD = 18;
+
+
+
+/** Generate calendar months */
 
 let year = parseInt(INITIAL_YEAR);
 let month = parseInt(INITIAL_MONTH);
@@ -35,25 +41,27 @@ for (let i = 0; i < CAL_NUM_MONTHS_AHEAD; i++) {
   }
 }
 
+/** Add print Styles */
+
 let documentHeight = app.offsetHeight;
-console.log("Document height: ", documentHeight);
-console.log("Document height2: ", app.firstChild.offsetHeight * CAL_NUM_MONTHS_AHEAD);
 
 const printStyle = document.createElement('style');
 printStyle.innerHTML = `
   @page {
-    size: 21.0cm 11043px; // set appropriately
+    size: 21.0cm ${documentHeight}px;
     margin: 0;
   }
   @media print {
     html, body {
-      width: 21.0cm; // set appropriately
-      height: 11043px; // set appropriately
+      width: 21.0cm;
+      height: ${documentHeight}px;
     }
-    /* ... the rest of the rules ... */
   }
 `;
-document.head.appendChild(printStyle);
+
+document.body.appendChild(printStyle);
+
+/** Helpers */
 
 function generateCalendarMonth(year = INITIAL_YEAR, month = INITIAL_MONTH) {
   const wrapperElement = document.createElement("div");

@@ -160,7 +160,7 @@ table {
 	/* You can only change the size, margins, orphans, widows and page breaks here */
 
 	/* Paper size and page orientation */
-	size: A4 portrait;
+	/* size: A4 portrait; */
 
 	/* Margin per single side of the page */
 	margin-left: 2cm;
