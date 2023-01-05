@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import "./normalize.css";
 import "./print.css";
 import "./styles.css";
 const weekday = require("dayjs/plugin/weekday");
