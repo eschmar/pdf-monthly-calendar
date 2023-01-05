@@ -19,6 +19,8 @@ const app = document.getElementById("app");
 
 app.innerHTML = '';
 generateCalendarMonth();
+generateCalendarMonth(2023, 2);
+generateCalendarMonth(2023, 3);
 
 function generateCalendarMonth(year = INITIAL_YEAR, month = INITIAL_MONTH) {
   const wrapperElement = document.createElement("div");

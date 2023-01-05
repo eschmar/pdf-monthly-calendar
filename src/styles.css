@@ -7,6 +7,7 @@ body {
   --grey-800: #3e4e63;
   --grid-gap: 1px;
   --day-label-size: 20px;
+  background-color: #f9fcff;
 }
 
 ol,
@@ -32,9 +33,10 @@ li {
 }
 
 .calendar-month {
-  position: relative;
+  display: grid;
   background-color: var(--grey-200);
-  border: solid 1px var(--grey-200);
+  /* border-left: solid 1px var(--grey-200);
+  border-right: solid 1px var(--grey-200); */
 }
 
 .day-of-week {
@@ -60,6 +62,7 @@ li {
   grid-column-gap: var(--grid-gap);
   grid-row-gap: var(--grid-gap);
   border-top: solid 1px var(--grey-200);
+  border-bottom: solid 1px var(--grey-200);
 }
 
 .calendar-day {
