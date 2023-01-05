@@ -43,9 +43,10 @@ for (let i = 0; i < CAL_NUM_MONTHS_AHEAD; i++) {
 
 /** Add print Styles */
 
-let documentHeight = app.offsetHeight;
-
+const page = document.getElementById("page");
+let documentHeight = page.offsetHeight;
 const printStyle = document.createElement('style');
+
 printStyle.innerHTML = `
   @page {
     size: 21.0cm ${documentHeight}px;
