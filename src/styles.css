@@ -46,11 +46,10 @@ li {
 }
 
 .day-of-week {
-  color: var(--grey-800);
+  color: var(--grey-100);
   font-size: 18px;
-  background-color: #fff;
-  padding-bottom: 5px;
-  padding-top: 10px;
+  background-color: var(--grey-800);
+  padding: 8px 0;
 }
 
 .day-of-week,
@@ -60,8 +59,7 @@ li {
 }
 
 .day-of-week > * {
-  text-align: right;
-  padding-right: 5px;
+  text-align: center;
 }
 
 .days-grid {
