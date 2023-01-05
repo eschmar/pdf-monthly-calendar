@@ -15,12 +15,23 @@ const INITIAL_MONTH = dayjs().format("M");
 let currentMonthDays;
 let previousMonthDays;
 let nextMonthDays;
-const app = document.getElementById("app");
 
+const app = document.getElementById("app");
 app.innerHTML = '';
-generateCalendarMonth();
-generateCalendarMonth(2023, 2);
-generateCalendarMonth(2023, 3);
+
+const CAL_NUM_MONTHS_AHEAD = 18;
+
+let year = parseInt(INITIAL_YEAR);
+let month = parseInt(INITIAL_MONTH);
+for (let i = 0; i < CAL_NUM_MONTHS_AHEAD; i++) {
+  console.log("Generating: ", year, month)
+  generateCalendarMonth(year, month++);
+
+  if (month == 13) {
+    year += 1;
+    month = 1;
+  }
+}
 
 function generateCalendarMonth(year = INITIAL_YEAR, month = INITIAL_MONTH) {
   const wrapperElement = document.createElement("div");
