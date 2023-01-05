@@ -16,22 +16,27 @@ let currentMonthDays;
 let previousMonthDays;
 let nextMonthDays;
 
-const daysOfWeekElement = document.getElementById("days-of-week");
+generateCalendarMonth();
 
-WEEKDAYS.forEach((weekday) => {
-  const weekDayElement = document.createElement("li");
-  daysOfWeekElement.appendChild(weekDayElement);
-  weekDayElement.innerText = weekday;
-});
+function generateCalendarMonth(year = INITIAL_YEAR, month = INITIAL_MONTH) {
+  const wrapperElement = document.createElement("div");
+  wrapperElement.classList.add("calendar-month");
 
-createCalendar();
+  /** Add Weekday Header */
+  const daysOfWeekElement = document.createElement("ol");
+  daysOfWeekElement.classList.add("days-of-week", "day-of-week");
 
-function createCalendar(year = INITIAL_YEAR, month = INITIAL_MONTH) {
-  const calendarDaysElement = document.getElementById("calendar-days");
+  WEEKDAYS.forEach((weekday) => {
+    const weekDayElement = document.createElement("li");
+    daysOfWeekElement.appendChild(weekDayElement);
+    weekDayElement.innerText = weekday;
+  });
 
-  document.getElementById("selected-month").innerText = dayjs(
-    new Date(year, month - 1)
-  ).format("MMMM YYYY");
+  wrapperElement.appendChild(daysOfWeekElement);
+
+  /** Add Calendar Days body */
+  const calendarDaysElement = document.createElement("ol");
+  calendarDaysElement.classList.add("calendar-days", "days-grid");
 
   currentMonthDays = createDaysForCurrentMonth(
     year,
@@ -40,7 +45,6 @@ function createCalendar(year = INITIAL_YEAR, month = INITIAL_MONTH) {
   );
 
   previousMonthDays = createDaysForPreviousMonth(year, month);
-
   nextMonthDays = createDaysForNextMonth(year, month);
 
   const days = [...previousMonthDays, ...currentMonthDays, ...nextMonthDays];
@@ -48,6 +52,11 @@ function createCalendar(year = INITIAL_YEAR, month = INITIAL_MONTH) {
   days.forEach((day) => {
     appendDay(day, calendarDaysElement);
   });
+
+  wrapperElement.appendChild(calendarDaysElement);
+
+  const app = document.getElementById("app");
+  app.appendChild(wrapperElement);
 }
 
 function appendDay(day, calendarDaysElement) {
