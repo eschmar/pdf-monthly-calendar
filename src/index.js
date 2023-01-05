@@ -21,16 +21,21 @@ const app = document.getElementById("app");
 app.innerHTML = '';
 
 /** Parse input parameters */
-
-const CAL_NUM_MONTHS_AHEAD = 18;
-
-
-
-/** Generate calendar months */
+const CAL_NUM_MONTHS_AHEAD = 12;
 
 let year = parseInt(INITIAL_YEAR);
 let month = parseInt(INITIAL_MONTH);
-for (let i = 0; i < CAL_NUM_MONTHS_AHEAD; i++) {
+let numMonths = CAL_NUM_MONTHS_AHEAD;
+
+const urlParams = new URLSearchParams(window.location.search);
+
+if (urlParams.has("year")) year = parseInt(urlParams.get("year"));
+if (urlParams.has("month")) month = parseInt(urlParams.get("month"));
+if (urlParams.has("num")) numMonths = parseInt(urlParams.get("num"));
+
+/** Generate calendar months */
+
+for (let i = 0; i < numMonths; i++) {
   console.log("Generating: ", year, month)
   generateCalendarMonth(year, month++);
 
