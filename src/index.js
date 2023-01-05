@@ -1,4 +1,6 @@
 import dayjs from "dayjs";
+import "./normalize.css";
+import "./print.css";
 import "./styles.css";
 const weekday = require("dayjs/plugin/weekday");
 const weekOfYear = require("dayjs/plugin/weekOfYear");
@@ -32,6 +34,26 @@ for (let i = 0; i < CAL_NUM_MONTHS_AHEAD; i++) {
     month = 1;
   }
 }
+
+let documentHeight = app.offsetHeight;
+console.log("Document height: ", documentHeight);
+console.log("Document height2: ", app.firstChild.offsetHeight * CAL_NUM_MONTHS_AHEAD);
+
+const printStyle = document.createElement('style');
+printStyle.innerHTML = `
+  @page {
+    size: 21.0cm 11043px; // set appropriately
+    margin: 0;
+  }
+  @media print {
+    html, body {
+      width: 21.0cm; // set appropriately
+      height: 11043px; // set appropriately
+    }
+    /* ... the rest of the rules ... */
+  }
+`;
+document.head.appendChild(printStyle);
 
 function generateCalendarMonth(year = INITIAL_YEAR, month = INITIAL_MONTH) {
   const wrapperElement = document.createElement("div");

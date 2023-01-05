@@ -24,8 +24,8 @@ li {
 .selected-month span {
   display: block;
   color: var(--grey-800);
-  font-size: 18px;
-  padding: 8px 0;
+  font-size: 16px;
+  padding: 6px 0;
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
@@ -38,10 +38,11 @@ li {
 
 .day-of-week {
   color: var(--grey-100);
-  font-size: 18px;
+  font-size: 16px;
+  padding: 6px 0;
+  font-weight: bold;
   background-color: var(--grey-800);
   border: solid 1px var(--grey-800);
-  padding: 8px 0;
 }
 
 .day-of-week,
