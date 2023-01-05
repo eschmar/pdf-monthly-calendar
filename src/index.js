@@ -48,7 +48,7 @@ for (let i = 0; i < numMonths; i++) {
 /** Add print Styles */
 
 const page = document.getElementById("page");
-let documentHeight = page.offsetHeight;
+let documentHeight = page.offsetHeight + 100;
 const printStyle = document.createElement('style');
 
 printStyle.innerHTML = `
